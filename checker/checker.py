@@ -151,18 +151,18 @@ def check_dmarc_extras(dmarc_record):
 
 
 def check_dmarc_policy(dmarc_record):
-    policy_strength = False
+    policyStrong = False
 
     if dmarc_record.policy:
         if dmarc_record.policy == "reject" or dmarc_record.policy == "quarantine":
-            policy_strength = True
+            policyStrong = True
             output_bad(f"DMARC policy set to {dmarc_record.policy}")
         else:
             output_good(f"DMARC policy set to {dmarc_record.policy}")
     else:
         output_good("DMARC record has no Policy")
 
-    return policy_strength
+    return policyStrong
 
 
 def check_dmarc_org_policy(base_record):
@@ -223,7 +223,7 @@ if __name__ == "__main__":
     color_init()
     
     try:
-        domain = "invennt.com" #sys.argv[1]
+        domain = sys.argv[1]
         """
         A DMARC Record can have p=none, p=quarantine, or p=reject. When the policy is set to quarantine, emails that fail SPF or DKIM checks 
         are usually delivered to the spam folder. When the policy is set to reject, emails that fail the checks are not delivered at all.
