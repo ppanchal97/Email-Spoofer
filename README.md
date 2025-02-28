@@ -4,7 +4,7 @@
 
 - Use the spoofer to send a spoofed email from weak domains. Use the checker to identify which domain can be spoofed first.
 
-## Forked from:
+## Inspired from:
 - BishopFox/spoofcheck
 - mikechabot/smtp-email-spoofer-py
 
